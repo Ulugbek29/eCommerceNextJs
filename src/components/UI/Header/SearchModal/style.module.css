@@ -1,0 +1,13 @@
+.search__modal::-webkit-scrollbar {
+    width: 8px;
+  } 
+    
+.search__modal::-webkit-scrollbar-track {
+    background: #eaeaea;
+  }
+
+  .search__modal::-webkit-scrollbar-thumb {
+    height: 50px;
+    background-color: orange;
+    border-radius: 10px;
+  }
