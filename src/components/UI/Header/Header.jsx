@@ -44,10 +44,10 @@ export default function Header() {
     // const filteredProducts = products.filter((product)=> product.title.toLowerCase().includes(inputValue.toLowerCase()))
     // console.log("filteredProducts",filteredProducts)
 
-console.log(products)
-console.log(searchModal)
+// console.log(products)
+// console.log(searchModal)
   return (
-    <div className='fixed w-full h-[80px] flex justify-between items-center gap-8 px-[6%] py-4 border-b border-[#d3d3d3] z-50'>
+    <div className='fixed w-full h-[80px] flex justify-between items-center gap-8 px-[6%] py-4 border-b border-[#d3d3d3] bg-white z-50'>
         <div className='flex items-center gap-4 '>
             <div>
                 <img src='/logo.png'/>

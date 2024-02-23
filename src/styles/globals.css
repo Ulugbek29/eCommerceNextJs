@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+
+
+/* Slick style  */
+
+.slick-dots ul {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.slick-dots ul div li {
+    width: 30px;
+    height: 3px;
+    border-radius: 1rem;
+    background: #F0F0F0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.slick-dots ul div li.slick-active{
+    background: #A9A8A9;
+}

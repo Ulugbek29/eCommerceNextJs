@@ -1,5 +1,8 @@
 import React from "react";
+import HomePage from "../components/Pages/Home"
 
 export default function index() {
-  return <div>Home Page</div>;
+  return <div>
+      <HomePage />
+  </div>;
 }
