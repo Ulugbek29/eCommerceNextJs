@@ -50,7 +50,9 @@ export default function Header() {
     <div className='fixed w-full h-[80px] flex justify-between items-center gap-8 px-[6%] py-4 border-b border-[#d3d3d3] bg-white z-50'>
         <div className='flex items-center gap-4 '>
             <div>
+            <Link href="/">
                 <img src='/logo.png'/>
+            </Link>
             </div>
             <CatalogButton setOpenCatalog={setOpenCatalog} openCatalog={openCatalog}/>
         </div>
@@ -81,7 +83,7 @@ export default function Header() {
             <button className='py-2 px-4 bg-[#F4F4F4] rounded-lg'>Регистрация</button>
             </Link>
         </div>
-       {openCatalog && <CatalogMenu />} 
+       {openCatalog && <CatalogMenu setOpenCatalog={setOpenCatalog}/>} 
     </div>
   )
 }

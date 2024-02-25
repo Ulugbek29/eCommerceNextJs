@@ -78,7 +78,6 @@ function index() {
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     appendDots: dots => {
-     console.log(dots)
      return   <div
           style={{
             width: "100%",
@@ -113,14 +112,15 @@ function index() {
         {SwipperData.map((swipper) => (
           <div
             key={swipper.id}
-            // style={{
-            // //   backgroundImage: `url(${})`,
-            //   backgroundSize: "cover",
-            //   backgroundPosition: "center", 
-            // }}
+            style={{
+              backgroundImage: `url(/swipper_bg.png)`,
+              backgroundSize: "cover",
+              backgroundPosition: "center", 
+            }}
             className={`w-full h-[400px]`}
             // style={{ backgroundImage: `url(${swipper.bgImg})`}}
           >
+          {/* <img  src={swipper.bgImg}/> */}
             <div className="w-5/12 h-full flex flex-col justify-center items-start gap-6 px-14 py-4">
               <h3 className="text-5xl font-bold">{swipper.title}</h3>
               <p>Купить любимые смартфоны в рассрочку</p>
