@@ -9,6 +9,9 @@ import Link from 'next/link';
 import productsService from '@/services/productServices';
 import SearchModal from './SearchModal/SearchModal';
 import SearchBtn from "../buttons//SearchButtons"
+import { useSelector } from 'react-redux';
+import { totalCartItemsAmount } from '@/components/utils/totalCartItemsAmount';
+
 
 export default function Header() {
     const [products, setProducts] = useState([])
@@ -16,9 +19,9 @@ export default function Header() {
     const [openCatalog, setOpenCatalog] = useState(false)
     const [searchModal, setSearchModal] = useState(false)
     const [searchLoader, setSearchLoader] = useState(false)
-    
+    const totalProducts = useSelector((store)=> store?.cart?.items)
 
-
+console.log(totalProducts);
     useEffect(()=> {
         const getData = setTimeout(() => {
         fetchhProducts()
@@ -70,9 +73,13 @@ export default function Header() {
                 <FavoriteBorderIcon color='inherit'/>
                 Избранное
             </div>
-            <div className='flex items-center flex-col'>
+
+            <div className='relative'>
+            <Link href="/cart" className='flex items-center flex-col'>
                 <ShoppingCartOutlinedIcon color='inherit'/>
                 Корзина
+            </Link>
+                <span className='absolute flex items-center justify-center top-[-5px] right-1 w-[20px] h-[20px] rounded-full bg-slate-500 text-white'>{totalCartItemsAmount(totalProducts)}</span>
             </div>
             <Link href="/login">
             <button className='py-2 px-4 bg-[#F4F4F4] rounded-lg'>

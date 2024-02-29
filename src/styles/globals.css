@@ -3,7 +3,9 @@
 @tailwind utilities;
 
 
-
+/* *::selection {
+    color: transparent;
+} */
 
 
 /* Slick style  */

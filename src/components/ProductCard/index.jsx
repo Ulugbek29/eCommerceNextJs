@@ -3,8 +3,19 @@ import StarIcon from "@mui/icons-material/Star";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import BalanceIcon from "@mui/icons-material/Balance";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/store/cartSlice";
 
 export default function index({ image, product }) {
+  const dispatch = useDispatch()
+
+
+  const addToCartProduct =()=>{
+    console.log(product);
+    if(product) dispatch(addToCart(product)) 
+  }
+
+
   return (
     <div className="relative flex flex-col bg-white rounded-lg pt-6 pb-4">
       <span className="absolute top-4 left-4 bg-red-500 text-white rounded-lg text-lg px-4 py-1">
@@ -57,7 +68,7 @@ export default function index({ image, product }) {
             </p>
             <h2 className="text-xl font-semibold">1200 650 000 сум</h2>
           </div>
-          <span className="p-4 text-[#FF9910]">
+          <span onClick={()=>addToCartProduct()} className="p-4 text-[#FF9910] cursor-pointer">
             <AddShoppingCartIcon />
           </span>
         </div>

@@ -3,7 +3,7 @@ import axios from "axios";
 
 const request = axios.create({
   baseURL: "https://dummyjson.com",
-  timeout: 100000,
+  timeout: 10000,
 });
 
 const errorHandler = (error) => {
