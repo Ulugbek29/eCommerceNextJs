@@ -3,19 +3,29 @@ import StarIcon from "@mui/icons-material/Star";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import BalanceIcon from "@mui/icons-material/Balance";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "@/store/cartSlice";
+import { addToFavourite } from "@/store/favouriteSlice";
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 export default function index({ image, product }) {
+  const favouriteProducts = useSelector((state)=> state?.favourite?.favourites)
   const dispatch = useDispatch()
 
 
+
   const addToCartProduct =()=>{
-    console.log(product);
     if(product) dispatch(addToCart(product)) 
   }
 
+  const addToFavouriteProduct =()=>{
+    if(product) dispatch(addToFavourite(product))
+  }
 
+  const isFavouriteProduct = product && favouriteProducts?.some((fav)=> fav.id === product.id)
+
+
+console.log(product);
   return (
     <div className="relative flex flex-col bg-white rounded-lg pt-6 pb-4">
       <span className="absolute top-4 left-4 bg-red-500 text-white rounded-lg text-lg px-4 py-1">
@@ -23,7 +33,13 @@ export default function index({ image, product }) {
       </span>
       <div className="absolute top-4 right-4 flex gap-4">
         <BalanceIcon />
+        <span onClick={()=>addToFavouriteProduct()} className="cursor-pointer">
+        {isFavouriteProduct ? 
+          <FavoriteIcon color="error"/>
+        : 
         <FavoriteBorderIcon />
+        }
+        </span>
       </div>
       <div className="w-full h-[250px] flex items-center justify-center">
         {product ? (
@@ -39,9 +55,9 @@ export default function index({ image, product }) {
         )}{" "}
       </div>
       <div className="flex flex-col gap-1 px-4">
-        <span className="text-base text-[#7E7E83]">Смартфоны</span>
+        <span className="text-base text-[#7E7E83]">{product ? product.category : "IphoneXS"}</span>
         <h2 className="text-lg font-semibold">
-          Смартфон Apple iPhone 14 Pro 512Gb Black
+          {product ? product.title : "IphoneXS"}
         </h2>
         <div className="flex gap-4">
           <div className="flex gap-2 text-xl">

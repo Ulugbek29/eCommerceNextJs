@@ -31,9 +31,16 @@ export default function CatalogMenu({ setOpenCatalog }) {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(false);
 
+
+  
   useEffect(() => {
+    const getData = setTimeout(() => {
     handleCategoryMouseEnter();
+  }, 1000)
+  return () => clearTimeout(getData)
   }, [categoryActive]);
+
+  
 
   useEffect(() => {
     fetchAllCategories();

@@ -128,7 +128,9 @@ export default function index() {
         <div className='flex flex-col gap-8'>
             <h2 className='text-2xl font-bold'>Новинки</h2>
             <div className='grid grid-cols-4 gap-6'>
-                <ProductCard image="product-1.png"/>
+            {/* {products.map((pro)=> (
+            ))} */}
+                <ProductCard image="product-1.png" />
                 <ProductCard image="product-2.png"/>
                 <ProductCard image="product-3.png"/>
                 <ProductCard image="product-4.png"/>

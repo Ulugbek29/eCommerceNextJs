@@ -4,6 +4,7 @@ import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE, persistStore } from 
 import storage from "redux-persist/lib/storage";
 import authReducer from "./Auth/auth.slice"
 import cartSlice from "./cartSlice";
+import favouriteSlice from "./favouriteSlice";
 
 const persisitAuthConfig={
   key: "auth",
@@ -15,11 +16,16 @@ const persisitCartConfig={
   storage
 }
 
+const persisitFavouriteConfig={
+  key: "favourite",
+  storage
+}
 
 
 export const rootReducer = combineReducers({
   auth: persistReducer(persisitAuthConfig, authReducer),
   cart: persistReducer(persisitCartConfig, cartSlice),
+  favourite: persistReducer(persisitFavouriteConfig, favouriteSlice)
 })
 
 

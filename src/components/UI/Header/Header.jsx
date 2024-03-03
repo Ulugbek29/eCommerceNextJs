@@ -69,10 +69,10 @@ console.log(totalProducts);
                 <BalanceOutlinedIcon color='inherit'/>
                 Сравнение
             </div>
-            <div className='flex items-center flex-col'>
+            <Link href="/favourites" className='flex items-center flex-col'>
                 <FavoriteBorderIcon color='inherit'/>
                 Избранное
-            </div>
+            </Link>
 
             <div className='relative'>
             <Link href="/cart" className='flex items-center flex-col'>
